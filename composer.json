@@ -1,8 +1,8 @@
 {
-    "name": "sylius/plugin-skeleton",
+    "name": "stefandoorn/sylius-address-house-number-plugin",
     "type": "sylius-plugin",
     "keywords": ["sylius", "sylius-plugin"],
-    "description": "Acme example plugin for Sylius.",
+    "description": "Split house number from street per address Sylius.",
     "license": "MIT",
     "require": {
         "php": "^7.2",
@@ -47,8 +47,8 @@
     "prefer-stable": true,
     "autoload": {
         "psr-4": {
-            "Acme\\SyliusExamplePlugin\\": "src/",
-            "Tests\\Acme\\SyliusExamplePlugin\\": "tests/"
+            "StefanDoorn\\SyliusAddressHouseNumberPlugin\\": "src/",
+            "Tests\\StefanDoorn\\SyliusAddressHouseNumberPlugin\\": "tests/"
         }
     },
     "extra": {
