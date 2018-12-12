@@ -46,3 +46,16 @@ This plugin helps you split street & housenumber.
     ```
     
     In case you already extended the Address class, only use the part that defines the field.
+
+6. Add to `SyliusAdminBundle/views/Common/Form/_address.html.twig`:
+
+    ```twig
+    {{ form_row(form.houseNumber) }}
+    ```
+    
+7. Add to `SyliusShopBundle/views/Common/Form/_address.html.twig`:
+    
+    ```twig
+    {{ form_row(form.houseNumber) }}
+    ```    
+    
