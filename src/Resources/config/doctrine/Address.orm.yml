@@ -1,4 +1,4 @@
-StefanDoorn\SyliusAddressHouseNumberBundle\Entity\Address:
+StefanDoorn\SyliusAddressHouseNumberPlugin\Entity\Address:
     type: entity
     table: sylius_address
     fields:

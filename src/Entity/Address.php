@@ -1,8 +1,8 @@
 <?php
 
-namespace StefanDoorn\SyliusAddressHouseNumberBundle\Entity;
+namespace StefanDoorn\SyliusAddressHouseNumberPlugin\Entity;
 
-use StefanDoorn\SyliusAddressHouseNumberBundle\Entity\Interfaces\AddressInterface;
+use StefanDoorn\SyliusAddressHouseNumberPlugin\Entity\Interfaces\AddressInterface;
 use StefanDoorn\SyliusAddressHouseNumberPlugin\Entity\Traits\HouseNumber;
 use Sylius\Component\Core\Model\Address as BaseAddress;
 
