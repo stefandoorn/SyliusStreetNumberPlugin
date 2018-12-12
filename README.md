@@ -18,14 +18,31 @@ This plugin helps you split street & housenumber.
     ];
     ```
 
-X. Add doctrine mapping:
+3. Add to your config:
 
     ```yaml
-    houseNumber:
-        column: house_number
-        type: string
-        nullable: false
-        options:
-            default: ''
+    - { resource: "@SyliusAddressHouseNumberPlugin/Resources/config/config.yml" }
     ```
 
+4. (optional) Load resource override (if you don't have this done in your project yet):
+
+    ```yaml
+    - { resource: "@SyliusAddressHouseNumberPlugin/Resources/config/resources.yml" }
+    ```
+
+5. Add doctrine mapping (`config/doctrine/Address.orm.yml`):
+
+    ```yaml
+    StefanDoorn\SyliusAddressHouseNumberPlugin\Entity\Address:
+        type: entity
+        table: sylius_address
+        fields:
+            houseNumber:
+                column: house_number
+                type: string
+                nullable: false
+                options:
+                    default: ''
+    ```
+    
+    In case you already extended the Address class, only use the part that defines the field.
