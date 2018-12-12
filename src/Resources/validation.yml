@@ -1,0 +1,6 @@
+SyliusAddressHouseNumberPlugin\Entity\Address:
+    properties:
+        houseNumber:
+            - NotBlank:
+                message: sylius.address.house_number.not_blank
+                groups: [sylius, sylius_shipping_address_update]

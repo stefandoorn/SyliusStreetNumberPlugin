@@ -1,0 +1,10 @@
+StefanDoorn\SyliusAddressHouseNumberBundle\Entity\Address:
+    type: entity
+    table: sylius_address
+    fields:
+        houseNumber:
+            column: house_number
+            type: string
+            nullable: false
+            options:
+                default: ''
