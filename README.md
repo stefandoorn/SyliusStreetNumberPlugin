@@ -1,4 +1,4 @@
-# Sylius House Number Plugin
+# WORK IN PROGRESS - Sylius House Number Plugin
 
 This plugin helps you split street & housenumber.
 
