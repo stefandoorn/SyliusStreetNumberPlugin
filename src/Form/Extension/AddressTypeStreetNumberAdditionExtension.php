@@ -23,6 +23,18 @@ final class AddressTypeStreetNumberAdditionExtension extends AbstractTypeExtensi
             'validation_groups' => ['sylius', 'sylius_shipping_address_update'],
         ]);
 
+        $builder->addEventListener(FormEvents::PRE_SET_DATA, function (FormEvent $event) {
+            /** @var \StefanDoorn\SyliusStreetNumberPlugin\Entity\Interfaces\AddressInterface $data */
+            $data = $event->getData();
+
+            if (null === $data->getId()) {
+                return; // Only adjust the data from already saved entities (we add it below only on PRE SUBMIT)
+            }
+
+            $data->setStreet($data->getStreetWithoutStreetNumberAndWithoutAddition());
+            $event->setData($data);
+        });
+
         $builder->addEventListener(FormEvents::PRE_SUBMIT,
             function (FormEvent $event) {
                 $data = $event->getData();

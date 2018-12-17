@@ -16,7 +16,7 @@ trait StreetNumber
      */
     private $streetNumberAddition;
 
-    public function getStreetNumber(): ?string
+    public function getStreetNumber(): string
     {
         return $this->streetNumber ?? '';
     }
@@ -38,21 +38,30 @@ trait StreetNumber
 
     public function getStreetNumberWithAddition(): string
     {
-        return $this->getStreetNumber() ?? '' . ' ' . $this->getStreetNumberAddition() ?? '';
+        return trim(sprintf('%s %s', $this->getStreetNumber(), $this->getStreetNumberAddition() ?? ''));
     }
 
     public function getStreetWithoutStreetNumber(): string
     {
-        return trim(rtrim($this->getStreet() ?? '', $this->getStreetNumber() ?? ''));
+        $input = $this->getStreetNumber() ?? '';
+        $street = $this->getStreet();
+
+        return trim(substr($street, 0, strlen($street) - strlen($input)));
     }
 
     public function getStreetWithoutStreetNumberAndWithoutAddition(): string
     {
-        return trim(rtrim($this->getStreet() ?? '', $this->getStreetNumberWithAddition() ?? ''));
+        $input = $this->getStreetNumberWithAddition();
+        $street = $this->getStreet();
+
+        return trim(substr($street, 0, strlen($street) - strlen($input)));
     }
 
     public function getStreetWithoutStreetNumberAddition(): string
     {
-        return trim(rtrim($this->getStreet() ?? '', $this->getStreetNumberAddition() ?? ''));
+        $input = $this->getStreetNumberAddition();
+        $street = $this->getStreet();
+
+        return trim(substr($street, 0, strlen($street) - strlen($input)));
     }
 }

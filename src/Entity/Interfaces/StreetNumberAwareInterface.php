@@ -6,7 +6,7 @@ namespace StefanDoorn\SyliusStreetNumberPlugin\Entity\Interfaces;
 
 interface StreetNumberAwareInterface
 {
-    public function getStreetNumber(): ?string;
+    public function getStreetNumber(): string;
 
     public function setStreetNumber(string $number): void;
 
