@@ -2,13 +2,13 @@ StefanDoorn\SyliusStreetNumberPlugin\Entity\Address:
     type: entity
     table: sylius_address
     fields:
-        streetNumber:
+        number:
             column: street_number
             type: string
             nullable: false
             options:
                 default: ''
-        streetNumberAddition:
+        addition:
             column: street_number_addition
             type: string
             nullable: true

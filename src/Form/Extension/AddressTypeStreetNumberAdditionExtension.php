@@ -17,7 +17,7 @@ final class AddressTypeStreetNumberAdditionExtension extends AbstractTypeExtensi
 
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('streetNumberAddition', TextType::class, [
+        $builder->add('addition', TextType::class, [
             'required' => false,
             'label' => 'sylius.form.address.street_number_addition',
             'validation_groups' => ['sylius', 'sylius_shipping_address_update'],
@@ -40,7 +40,7 @@ final class AddressTypeStreetNumberAdditionExtension extends AbstractTypeExtensi
                 $data = $event->getData();
 
                 $street = $data['street'];
-                $streetNumberAddition = $data['streetNumberAddition'];
+                $streetNumberAddition = $data['addition'];
 
                 // Add housenumber to street field to keep things compatible with Sylius
                 if (false !== strrpos($street, $streetNumberAddition)) {

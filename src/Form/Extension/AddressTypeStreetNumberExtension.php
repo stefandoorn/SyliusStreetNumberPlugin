@@ -17,7 +17,7 @@ final class AddressTypeStreetNumberExtension extends AbstractTypeExtension
 
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('streetNumber', TextType::class, [
+        $builder->add('number', TextType::class, [
             'required' => true,
             'label' => 'sylius.form.address.street_number',
             'constraints' => [new NotBlank([
@@ -44,7 +44,7 @@ final class AddressTypeStreetNumberExtension extends AbstractTypeExtension
                 $data = $event->getData();
 
                 $street = $data['street'];
-                $streetNumber = $data['streetNumber'];
+                $streetNumber = $data['number'];
 
                 // Add housenumber to street field to keep things compatible with Sylius
                 if (false !== strrpos($street, $streetNumber)) {

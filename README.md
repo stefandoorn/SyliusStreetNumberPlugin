@@ -44,13 +44,13 @@ Optional features:
         ...
         table: sylius_address
         fields:
-            streetNumber:
+            number:
                 column: street_number
                 type: string
                 nullable: false
                 options:
                     default: ''
-            streetNumberAddition:
+            addition:
                 column: street_number_addition
                 type: string
                 nullable: true                 
@@ -63,13 +63,13 @@ Optional features:
 6. Add to `SyliusAdminBundle/views/Common/Form/_address.html.twig`:
 
     ```twig
-    {{ form_row(form.streetNumber) }}
+    {{ form_row(form.number) }}
     ```
     
 7. Add to `SyliusShopBundle/views/Common/Form/_address.html.twig`:
     
     ```twig
-    {{ form_row(form.streetNumber) }}
+    {{ form_row(form.number) }}
     ```
     
 8. Update database:
@@ -92,12 +92,12 @@ Optional features:
 2. Add to `SyliusAdminBundle/views/Common/Form/_address.html.twig`:
 
     ```twig
-    {{ form_row(form.streetNumberAddition) }}
+    {{ form_row(form.addition) }}
     ```
     
 3. Add to `SyliusShopBundle/views/Common/Form/_address.html.twig`:
     
     ```twig
-    {{ form_row(form.streetNumberAddition) }}
+    {{ form_row(form.addition) }}
     ```
     
