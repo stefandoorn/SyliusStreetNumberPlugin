@@ -31,7 +31,7 @@ final class AddressTypeStreetNumberAdditionExtension extends AbstractTypeExtensi
                 return; // Only adjust the data from already saved entities (we add it below only on PRE SUBMIT)
             }
 
-            $data->setStreet($data->getStreetWithoutStreetNumberAndWithoutAddition());
+            $data->setStreet($data->getStreetWithoutNumberAndAddition());
             $event->setData($data);
         });
 
