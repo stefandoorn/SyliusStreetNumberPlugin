@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace StefanDoorn\SyliusStreetNumberPlugin\Entity;
 
 use StefanDoorn\SyliusStreetNumberPlugin\Entity\Interfaces\AddressInterface;

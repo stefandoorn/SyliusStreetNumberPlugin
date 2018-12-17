@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace StefanDoorn\SyliusStreetNumberPlugin\Form\Extension;
 
 use Sylius\Bundle\AddressingBundle\Form\Type\AddressType;
