@@ -15,7 +15,19 @@ final class Configuration implements ConfigurationInterface
     public function getConfigTreeBuilder(): TreeBuilder
     {
         $treeBuilder = new TreeBuilder();
+
         $rootNode = $treeBuilder->root('sylius_street_number_plugin');
+        $rootNode
+            ->children()
+                ->arrayNode('features')
+                    ->addDefaultsIfNotSet()
+                    ->children()
+                        ->booleanNode('street_number')->defaultTrue()->end()
+                        ->booleanNode('street_number_addition')->defaultFalse()->end()
+                    ->end()
+                ->end()
+            ->end()
+        ;
 
         return $treeBuilder;
     }

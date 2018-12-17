@@ -8,3 +8,7 @@ StefanDoorn\SyliusStreetNumberPlugin\Entity\Address:
             nullable: false
             options:
                 default: ''
+        streetNumberAddition:
+            column: street_number_addition
+            type: string
+            nullable: true

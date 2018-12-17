@@ -7,6 +7,7 @@ namespace StefanDoorn\SyliusStreetNumberPlugin\DependencyInjection;
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Extension\Extension;
+use Symfony\Component\DependencyInjection\Loader\YamlFileLoader;
 use Symfony\Component\DependencyInjection\Loader\XmlFileLoader;
 
 final class SyliusStreetNumberExtension extends Extension
@@ -17,8 +18,15 @@ final class SyliusStreetNumberExtension extends Extension
     public function load(array $config, ContainerBuilder $container): void
     {
         $config = $this->processConfiguration($this->getConfiguration([], $container), $config);
-        $loader = new XmlFileLoader($container, new FileLocator(__DIR__ . '/../Resources/config'));
 
-        $loader->load('services.xml');
+        $xmlFileLoader = new XmlFileLoader($container, new FileLocator(__DIR__ . '/../Resources/config'));
+
+        foreach ($config['features'] as $feature => $setting) {
+            $container->setParameter(sprintf('sylius_street_number_plugin.features.%s', $feature), $setting);
+
+            if ($setting === true) {
+                $xmlFileLoader->load(sprintf('services_features/%s.xml', $feature));
+            }
+        }
     }
 }

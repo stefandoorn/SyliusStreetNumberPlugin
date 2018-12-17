@@ -2,7 +2,15 @@
 
 This plugin helps you split street & number.
 
-## Installation
+Features:
+
+* Add `streetNumber` field to Address form (and database)
+
+Optional features:
+
+* Add `streetNumberAddition` field to Address form (and database)
+
+## Installation (Part 1)
 
 1. Require plugin with composer:
 
@@ -23,18 +31,17 @@ This plugin helps you split street & number.
     ```yaml
     - { resource: "@SyliusStreetNumberPlugin/Resources/config/config.yml" }
     ```
-
-4. (optional) Load resource override (if you don't have this done in your project yet):
+    
+4. (optional) Load address resource override (if you don't have this done in your project yet):
 
     ```yaml
     - { resource: "@SyliusStreetNumberPlugin/Resources/config/resources.yml" }
     ```
 
-5. Add doctrine mapping (`config/doctrine/Address.orm.yml`):
+5. Add doctrine mapping fields for table `sylius_address` (`config/doctrine/Address.orm.yml`):
 
     ```yaml
-    StefanDoorn\SyliusStreetNumberPlugin\Entity\Address:
-        type: entity
+        ...
         table: sylius_address
         fields:
             streetNumber:
@@ -43,9 +50,15 @@ This plugin helps you split street & number.
                 nullable: false
                 options:
                     default: ''
+            streetNumberAddition:
+                column: street_number_addition
+                type: string
+                nullable: true                 
     ```
     
-    In case you already extended the Address class, only use the part that defines the field.
+    In case you haven't already extended the Address class, Symfony will use the one from this bundle.
+    
+    The `streetNumberAddition` field is always added, regardless whether you use it. It will be `null` in that cae.
 
 6. Add to `SyliusAdminBundle/views/Common/Form/_address.html.twig`:
 
@@ -57,5 +70,27 @@ This plugin helps you split street & number.
     
     ```twig
     {{ form_row(form.streetNumber) }}
+    ```
+
+## (Optional) Add `streetNumberAddition` field
+
+1. Enable in config (for form extension):
+
+    ```yaml
+    sylius_street_number:
+        features:
+            street_number_addition: true
+    ```
+
+2. Add to `SyliusAdminBundle/views/Common/Form/_address.html.twig`:
+
+    ```twig
+    {{ form_row(form.streetNumberAddition) }}
+    ```
+    
+3. Add to `SyliusShopBundle/views/Common/Form/_address.html.twig`:
+    
+    ```twig
+    {{ form_row(form.streetNumberAddition) }}
     ```
     

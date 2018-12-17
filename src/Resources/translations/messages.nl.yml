@@ -2,3 +2,4 @@ sylius:
     form:
         address:
             street_number: Huisnummer
+            street_number_addition: Toevoeging

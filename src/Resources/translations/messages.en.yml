@@ -1,4 +1,5 @@
 sylius:
     form:
         address:
-            street_number: Street number
+            street_number: Number
+            street_number_addition: Addition

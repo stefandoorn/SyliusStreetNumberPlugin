@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+    <services>
+        <service id="stefandoorn.sylius_street_number_plugin.form.extension.type.address_street_number_addition" class="StefanDoorn\SyliusStreetNumberPlugin\Form\Extension\AddressTypeStreetNumberAdditionExtension">
+            <tag name="form.type_extension" extended_type="Sylius\Bundle\AddressingBundle\Form\Type\AddressType" priority="-10" />
+        </service>
+    </services>
+</container>
