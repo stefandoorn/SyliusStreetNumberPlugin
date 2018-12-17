@@ -10,7 +10,7 @@ Optional features:
 
 * Add `streetNumberAddition` field to Address form (and database)
 
-## Installation (Part 1)
+## Installation 
 
 1. Require plugin with composer:
 
