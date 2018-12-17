@@ -71,6 +71,13 @@ Optional features:
     ```twig
     {{ form_row(form.streetNumber) }}
     ```
+    
+8. Update database:
+
+    ```bash
+    $ bin/console doctrine:migrations:diff
+    $ bin/console doctrine:migrations:migrate
+    ```    
 
 ## (Optional) Add `streetNumberAddition` field
 
