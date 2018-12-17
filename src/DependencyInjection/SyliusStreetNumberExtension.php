@@ -20,6 +20,7 @@ final class SyliusStreetNumberExtension extends Extension
         $config = $this->processConfiguration($this->getConfiguration([], $container), $config);
 
         $xmlFileLoader = new XmlFileLoader($container, new FileLocator(__DIR__ . '/../Resources/config'));
+        $xmlFileLoader->load('services.xml');
 
         foreach ($config['features'] as $feature => $setting) {
             $container->setParameter(sprintf('sylius_street_number_plugin.features.%s', $feature), $setting);

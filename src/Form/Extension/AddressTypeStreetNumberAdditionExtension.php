@@ -27,6 +27,10 @@ final class AddressTypeStreetNumberAdditionExtension extends AbstractTypeExtensi
             /** @var \StefanDoorn\SyliusStreetNumberPlugin\Entity\Interfaces\AddressInterface $data */
             $data = $event->getData();
 
+            if (!$data) {
+                return;
+            }
+
             if (null === $data->getId()) {
                 return; // Only adjust the data from already saved entities (we add it below only on PRE SUBMIT)
             }
