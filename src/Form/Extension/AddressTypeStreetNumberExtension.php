@@ -12,7 +12,7 @@ use Symfony\Component\Form\FormEvent;
 use Symfony\Component\Form\FormEvents;
 use Symfony\Component\Validator\Constraints\NotBlank;
 
-final class AddressTypeExtension extends AbstractTypeExtension
+final class AddressTypeStreetNumberExtension extends AbstractTypeExtension
 {
 
     public function buildForm(FormBuilderInterface $builder, array $options)

@@ -1,0 +1,4 @@
+sylius:
+    address:
+        street_number:
+            not_blank: Please fill in a street number.
