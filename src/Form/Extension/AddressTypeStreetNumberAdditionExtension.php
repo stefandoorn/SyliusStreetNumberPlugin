@@ -18,6 +18,7 @@ final class AddressTypeStreetNumberAdditionExtension extends AbstractTypeExtensi
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder->add('streetNumberAddition', TextType::class, [
+            'required' => false,
             'label' => 'sylius.form.address.street_number_addition',
             'validation_groups' => ['sylius', 'sylius_shipping_address_update'],
         ]);
