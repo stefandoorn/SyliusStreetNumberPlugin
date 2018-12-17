@@ -2,8 +2,8 @@ StefanDoorn\SyliusAddressHouseNumberPlugin\Entity\Address:
     type: entity
     table: sylius_address
     fields:
-        houseNumber:
-            column: house_number
+        streetNumber:
+            column: street_number
             type: string
             nullable: false
             options:

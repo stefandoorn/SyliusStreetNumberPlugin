@@ -2,4 +2,4 @@ sylius_addressing:
     resources:
         address:
             classes:
-                model: StefanDoorn\SyliusAddressHouseNumberPlugin\Entity\Address
+                model: StefanDoorn\SyliusStreetNumberPlugin\Entity\Address

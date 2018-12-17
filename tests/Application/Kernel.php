@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Tests\StefanDoorn\SyliusAddressHouseNumberPlugin\Application;
+namespace Tests\StefanDoorn\SyliusStreetNumberPlugin\Application;
 
 use ProxyManager\Proxy\VirtualProxyInterface;
 use PSS\SymfonyMockerContainer\DependencyInjection\MockerContainer;

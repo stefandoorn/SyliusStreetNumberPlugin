@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace StefanDoorn\SyliusAddressHouseNumberPlugin\DependencyInjection;
+namespace StefanDoorn\SyliusStreetNumberPlugin\DependencyInjection;
 
 use Symfony\Component\Config\Definition\Builder\TreeBuilder;
 use Symfony\Component\Config\Definition\ConfigurationInterface;
@@ -15,7 +15,7 @@ final class Configuration implements ConfigurationInterface
     public function getConfigTreeBuilder(): TreeBuilder
     {
         $treeBuilder = new TreeBuilder();
-        $rootNode = $treeBuilder->root('sylius_address_house_number_plugin');
+        $rootNode = $treeBuilder->root('sylius_street_number_plugin');
 
         return $treeBuilder;
     }

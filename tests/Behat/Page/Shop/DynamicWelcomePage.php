@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Tests\StefanDoorn\SyliusAddressHouseNumberPlugin\Behat\Page\Shop;
+namespace Tests\StefanDoorn\SyliusStreetNumberPlugin\Behat\Page\Shop;
 
 use FriendsOfBehat\PageObjectExtension\Page\SymfonyPage;
 

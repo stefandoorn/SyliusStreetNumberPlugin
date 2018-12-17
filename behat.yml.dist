@@ -14,7 +14,7 @@ default:
             kernel:
                 env: test
                 debug: true
-                class: Tests\StefanDoorn\SyliusAddressHouseNumberPlugin\Application\Kernel
+                class: Tests\StefanDoorn\SyliusStreetNumberPlugin\Application\Kernel
                 path: tests/Application/Kernel.php
                 bootstrap: ~
 

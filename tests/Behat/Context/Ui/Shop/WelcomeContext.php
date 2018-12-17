@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Tests\StefanDoorn\SyliusAddressHouseNumberPlugin\Behat\Context\Ui\Shop;
+namespace Tests\StefanDoorn\SyliusStreetNumberPlugin\Behat\Context\Ui\Shop;
 
 use Behat\Behat\Context\Context;
-use Tests\StefanDoorn\SyliusAddressHouseNumberPlugin\Behat\Page\Shop\WelcomePageInterface;
+use Tests\StefanDoorn\SyliusStreetNumberPlugin\Behat\Page\Shop\WelcomePageInterface;
 use Webmozart\Assert\Assert;
 
 final class WelcomeContext implements Context

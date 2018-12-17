@@ -3,7 +3,7 @@
 <container xmlns="http://symfony.com/schema/dic/services" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
     <services>
         <!-- Put your services here -->
-        <service id="stefandoorn.sylius_address_house_number_plugin.form.extension.type.address" class="StefanDoorn\SyliusAddressHouseNumberPlugin\Form\Extension\AddressTypeExtension">
+        <service id="stefandoorn.sylius_street_number_plugin.form.extension.type.address" class="StefanDoorn\SyliusStreetNumberPlugin\Form\Extension\AddressTypeExtension">
             <tag name="form.type_extension" extended_type="Sylius\Bundle\AddressingBundle\Form\Type\AddressType" />
         </service>
     </services>

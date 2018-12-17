@@ -1,4 +1,4 @@
 suites:
     main:
-        namespace: StefanDoorn\SyliusAddressHouseNumberPlugin
-        psr4_prefix: StefanDoorn\SyliusAddressHouseNumberPlugin
+        namespace: StefanDoorn\SyliusStreetNumberPlugin
+        psr4_prefix: StefanDoorn\SyliusStreetNumberPlugin

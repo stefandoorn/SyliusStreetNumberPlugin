@@ -1,6 +1,6 @@
 <?php
 
-namespace StefanDoorn\SyliusAddressHouseNumberPlugin\Form\Extension;
+namespace StefanDoorn\SyliusStreetNumberPlugin\Form\Extension;
 
 use Sylius\Bundle\AddressingBundle\Form\Type\AddressType;
 use Symfony\Component\Form\AbstractTypeExtension;
@@ -15,15 +15,13 @@ final class AddressTypeExtension extends AbstractTypeExtension
 
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('houseNumber', TextType::class, [
+        $builder->add('streetNumber', TextType::class, [
             'required' => true,
-            'label' => 'sylius.form.address.house_number',
-            'constraints' => [
-                new NotBlank([
-                    'message' => 'sylius.address.house_number.not_blank',
-                    'groups' => ['sylius', 'sylius_shipping_address_update'],
-                ]),
-            ],
+            'label' => 'sylius.form.address.street_number',
+            'constraints' => [new NotBlank([
+                'message' => 'sylius.address.street_number.not_blank',
+                'groups' => ['sylius', 'sylius_shipping_address_update']
+            ])],
             'validation_groups' => ['sylius', 'sylius_shipping_address_update'],
         ]);
 
@@ -32,7 +30,7 @@ final class AddressTypeExtension extends AbstractTypeExtension
                 $data = $event->getData();
 
                 $street = $data['street'];
-                $streetNumber = $data['houseNumber'];
+                $streetNumber = $data['streetNumber'];
 
                 // Add housenumber to street field to keep things compatible with Sylius
                 if (false !== strrpos($street, $streetNumber)) {

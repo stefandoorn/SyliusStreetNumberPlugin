@@ -1,33 +1,33 @@
-# WORK IN PROGRESS - Sylius House Number Plugin
+# WORK IN PROGRESS - Sylius Street Number Plugin
 
-This plugin helps you split street & housenumber.
+This plugin helps you split street & number.
 
 ## Installation
 
 1. Require plugin with composer:
 
     ```bash
-    composer require stefandoorn/sylius-address-house-number-plugin
+    composer require stefandoorn/sylius-street-number-plugin
     ```
 
 2. Add plugin class to your `AppKernel`.
 
     ```php
     $bundles = [
-       new \StefanDoorn\SyliusAddressHouseNumberPlugin\SyliusAddressHouseNumberPlugin(),
+       new \StefanDoorn\SyliusStreetNumberPlugin\SyliusStreetNumberPlugin(),
     ];
     ```
 
 3. Add to your config:
 
     ```yaml
-    - { resource: "@SyliusAddressHouseNumberPlugin/Resources/config/config.yml" }
+    - { resource: "@SyliusStreetNumberPlugin/Resources/config/config.yml" }
     ```
 
 4. (optional) Load resource override (if you don't have this done in your project yet):
 
     ```yaml
-    - { resource: "@SyliusAddressHouseNumberPlugin/Resources/config/resources.yml" }
+    - { resource: "@SyliusStreetNumberPlugin/Resources/config/resources.yml" }
     ```
 
 5. Add doctrine mapping (`config/doctrine/Address.orm.yml`):
@@ -37,8 +37,8 @@ This plugin helps you split street & housenumber.
         type: entity
         table: sylius_address
         fields:
-            houseNumber:
-                column: house_number
+            streetNumber:
+                column: street_number
                 type: string
                 nullable: false
                 options:
@@ -50,12 +50,12 @@ This plugin helps you split street & housenumber.
 6. Add to `SyliusAdminBundle/views/Common/Form/_address.html.twig`:
 
     ```twig
-    {{ form_row(form.houseNumber) }}
+    {{ form_row(form.streetNumber) }}
     ```
     
 7. Add to `SyliusShopBundle/views/Common/Form/_address.html.twig`:
     
     ```twig
-    {{ form_row(form.houseNumber) }}
+    {{ form_row(form.streetNumber) }}
     ```
     

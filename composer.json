@@ -1,8 +1,8 @@
 {
-    "name": "stefandoorn/sylius-address-house-number-plugin",
+    "name": "stefandoorn/sylius-street-number-plugin",
     "type": "sylius-plugin",
     "keywords": ["sylius", "sylius-plugin"],
-    "description": "Split house number from street per address Sylius.",
+    "description": "Split number from street per address Sylius.",
     "license": "MIT",
     "require": {
         "php": "^7.1",
@@ -47,8 +47,8 @@
     "prefer-stable": true,
     "autoload": {
         "psr-4": {
-            "StefanDoorn\\SyliusAddressHouseNumberPlugin\\": "src/",
-            "Tests\\StefanDoorn\\SyliusAddressHouseNumberPlugin\\": "tests/"
+            "StefanDoorn\\SyliusStreetNumberPlugin\\": "src/",
+            "Tests\\StefanDoorn\\SyliusStreetNumberPlugin\\": "tests/"
         }
     },
     "extra": {

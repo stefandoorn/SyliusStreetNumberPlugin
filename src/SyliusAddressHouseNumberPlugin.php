@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace StefanDoorn\SyliusAddressHouseNumberPlugin;
+namespace StefanDoorn\SyliusStreetNumberPlugin;
 
 use Sylius\Bundle\CoreBundle\Application\SyliusPluginTrait;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
-final class SyliusAddressHouseNumberPlugin extends Bundle
+final class SyliusStreetNumberPlugin extends Bundle
 {
     use SyliusPluginTrait;
 }
