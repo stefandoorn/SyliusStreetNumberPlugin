@@ -1,6 +1,6 @@
 <?php
 
-namespace StefanDoorn\SyliusAddressHouseNumberPlugin\Entity;
+namespace StefanDoorn\SyliusStreetNumberPlugin\Entity;
 
 use StefanDoorn\SyliusStreetNumberPlugin\Entity\Interfaces\AddressInterface;
 use StefanDoorn\SyliusStreetNumberPlugin\Entity\Traits\HouseNumber;

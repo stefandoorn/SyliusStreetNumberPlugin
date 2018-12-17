@@ -33,7 +33,7 @@ This plugin helps you split street & number.
 5. Add doctrine mapping (`config/doctrine/Address.orm.yml`):
 
     ```yaml
-    StefanDoorn\SyliusAddressHouseNumberPlugin\Entity\Address:
+    StefanDoorn\SyliusStreetNumberPlugin\Entity\Address:
         type: entity
         table: sylius_address
         fields:

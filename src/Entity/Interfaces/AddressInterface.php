@@ -1,6 +1,6 @@
 <?php
 
-namespace StefanDoorn\SyliusAddressHouseNumberPlugin\Entity\Interfaces;
+namespace StefanDoorn\SyliusStreetNumberPlugin\Entity\Interfaces;
 
 use Sylius\Component\Core\Model\AddressInterface as BaseAddressInterface;
 

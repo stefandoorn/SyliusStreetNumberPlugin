@@ -6,8 +6,8 @@ imports:
 
     - { resource: "@SyliusShopBundle/Resources/config/app/config.yml" }
 
-    - { resource: "@SyliusAddressHouseNumberPlugin/Resources/config/config.yml" }
-    - { resource: "@SyliusAddressHouseNumberPlugin/Resources/config/resources.yml" }
+    - { resource: "@SyliusStreetNumberPlugin/Resources/config/config.yml" }
+    - { resource: "@SyliusStreetNumberPlugin/Resources/config/resources.yml" }
 
 parameters:
     sylius_core.public_dir: '%kernel.project_dir%/public'
