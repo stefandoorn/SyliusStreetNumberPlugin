@@ -4,8 +4,6 @@ declare(strict_types=1);
 
 namespace StefanDoorn\SyliusStreetNumberPlugin\Entity\Traits;
 
-use StefanDoorn\SyliusStreetNumberPlugin\Helper\StripString;
-
 trait Addition
 {
     /**

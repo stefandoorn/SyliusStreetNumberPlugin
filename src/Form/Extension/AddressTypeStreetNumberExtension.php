@@ -14,7 +14,6 @@ use Symfony\Component\Validator\Constraints\NotBlank;
 
 final class AddressTypeStreetNumberExtension extends AbstractTypeExtension
 {
-
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder->add('number', TextType::class, [
@@ -22,7 +21,7 @@ final class AddressTypeStreetNumberExtension extends AbstractTypeExtension
             'label' => 'sylius.form.address.street_number',
             'constraints' => [new NotBlank([
                 'message' => 'sylius.address.street_number.not_blank',
-                'groups' => ['sylius', 'sylius_shipping_address_update']
+                'groups' => ['sylius', 'sylius_shipping_address_update'],
             ])],
             'validation_groups' => ['sylius', 'sylius_shipping_address_update'],
         ]);

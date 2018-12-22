@@ -10,11 +10,10 @@ use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\FormEvent;
 use Symfony\Component\Form\FormEvents;
-use Symfony\Component\Validator\Constraints\NotBlank;
+
 
 final class AddressTypeStreetNumberAdditionExtension extends AbstractTypeExtension
 {
-
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder->add('addition', TextType::class, [

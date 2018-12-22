@@ -8,5 +8,4 @@ use Sylius\Component\Core\Model\AddressInterface as BaseAddressInterface;
 
 interface AddressInterface extends BaseAddressInterface, StreetNumberAwareInterface
 {
-
 }
