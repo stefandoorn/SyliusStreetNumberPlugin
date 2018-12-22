@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <container xmlns="http://symfony.com/schema/dic/services" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
     <services>
-        <service id="sylius.fixture.address" class="StefanDoorn\SyliusStreetNumberPlugin\Fixture\AddressFixture">
+        <service public="true" id="sylius.fixture.address" class="StefanDoorn\SyliusStreetNumberPlugin\Fixture\AddressFixture">
             <argument type="service" id="sylius.manager.address"/>
             <argument type="service" id="sylius.fixture.example_factory.address"/>
 
             <tag name="sylius_fixtures.fixture"/>
         </service>
 
-        <service id="sylius.fixture.example_factory.address" class="StefanDoorn\SyliusStreetNumberPlugin\Fixture\Factory\AddressExampleFactory">
+        <service public="true" id="sylius.fixture.example_factory.address" class="StefanDoorn\SyliusStreetNumberPlugin\Fixture\Factory\AddressExampleFactory">
             <argument type="service" id="sylius.factory.address" />
             <argument type="service" id="sylius.repository.country" />
             <argument type="service" id="sylius.repository.customer" />
         </service>
 
-        <service id="sylius.fixture.order" class="StefanDoorn\SyliusStreetNumberPlugin\Fixture\OrderFixture">
+        <service public="true" id="sylius.fixture.order" class="StefanDoorn\SyliusStreetNumberPlugin\Fixture\OrderFixture">
             <argument type="service" id="sylius.factory.order" />
             <argument type="service" id="sylius.factory.order_item" />
             <argument type="service" id="sylius.order_item_quantity_modifier" />

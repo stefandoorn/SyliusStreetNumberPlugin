@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace StefanDoorn\SyliusStreetNumberPlugin\Form\Extension;
 
+use StefanDoorn\SyliusStreetNumberPlugin\Entity\Interfaces\AddressInterface;
 use Sylius\Bundle\AddressingBundle\Form\Type\AddressType;
 use Symfony\Component\Form\AbstractTypeExtension;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
@@ -27,10 +28,10 @@ final class AddressTypeStreetNumberExtension extends AbstractTypeExtension
         ]);
 
         $builder->addEventListener(FormEvents::PRE_SET_DATA, function (FormEvent $event) {
-            /** @var \StefanDoorn\SyliusStreetNumberPlugin\Entity\Interfaces\AddressInterface $data */
+            /** @var AddressInterface $data */
             $data = $event->getData();
 
-            if (!$data) {
+            if (!$data instanceof AddressInterface) {
                 return;
             }
 
