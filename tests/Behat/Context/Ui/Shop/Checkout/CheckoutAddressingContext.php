@@ -1,0 +1,77 @@
+<?php
+
+declare(strict_types=1);
+
+namespace Tests\StefanDoorn\SyliusStreetNumberPlugin\Behat\Context\Ui\Shop\Checkout;
+
+use Behat\Behat\Context\Context;
+use Tests\StefanDoorn\SyliusStreetNumberPlugin\Behat\Page\Shop\Checkout\AddressPageInterface;
+use Sylius\Behat\Page\Shop\Checkout\SelectShippingPageInterface;
+use Sylius\Behat\Service\SharedStorageInterface;
+use Sylius\Component\Addressing\Comparator\AddressComparatorInterface;
+use Sylius\Component\Resource\Factory\FactoryInterface;
+use Webmozart\Assert\Assert;
+
+final class CheckoutAddressingContext implements Context
+{
+    /** @var SharedStorageInterface */
+    private $sharedStorage;
+
+    /** @var AddressPageInterface */
+    private $addressPage;
+
+    /** @var FactoryInterface */
+    private $addressFactory;
+
+    /** @var AddressComparatorInterface */
+    private $addressComparator;
+
+    /** @var SelectShippingPageInterface */
+    private $selectShippingPage;
+
+    public function __construct(
+        SharedStorageInterface $sharedStorage,
+        AddressPageInterface $addressPage,
+        FactoryInterface $addressFactory,
+        AddressComparatorInterface $addressComparator,
+        SelectShippingPageInterface $selectShippingPage
+    ) {
+        $this->sharedStorage = $sharedStorage;
+        $this->addressPage = $addressPage;
+        $this->addressFactory = $addressFactory;
+        $this->addressComparator = $addressComparator;
+        $this->selectShippingPage = $selectShippingPage;
+    }
+
+    /**
+     * @Then /^I should be notified that the street number in (shipping|billing) details is required$/
+     */
+    public function iShouldBeNotifiedThatTheStreetNumberShippingDetailsIsRequired($type): void
+    {
+        $element = 'number';
+
+        $this->assertElementValidationMessage($type, $element, sprintf('Please fill in a street %s.', $element));
+    }
+
+    /**
+     * @Then /^I should not be notified that the street number addition in (shipping|billing) details is required$/
+     */
+    public function iShouldNotBeNotifiedThatTheStreetNumberAdditionShippingDetailsIsRequired($type): void
+    {
+        $element = 'addition';
+
+        $this->assertElementHasNoValidationMessage($type, $element);
+    }
+
+    private function assertElementValidationMessage(string $type, string $element, string $expectedMessage): void
+    {
+        $element = sprintf('%s_%s', $type, str_replace(' ', '_', $element));
+        Assert::true($this->addressPage->checkValidationMessageFor($element, $expectedMessage));
+    }
+
+    private function assertElementHasNoValidationMessage(string $type, string $element): void
+    {
+        $element = sprintf('%s_%s', $type, str_replace(' ', '_', $element));
+        Assert::true($this->addressPage->noValidationMessageFor($element));
+    }
+}

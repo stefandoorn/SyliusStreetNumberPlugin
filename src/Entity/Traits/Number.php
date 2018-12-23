@@ -16,7 +16,7 @@ trait Number
         return $this->number ?? '';
     }
 
-    public function setNumber(string $number): void
+    public function setNumber(?string $number): void
     {
         $this->number = $number;
     }

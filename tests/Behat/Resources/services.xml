@@ -1,16 +1,18 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-
 <container xmlns="http://symfony.com/schema/dic/services" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
-    <services>
-        <!-- Put your Behat services here -->
+    <parameters>
+        <parameter key="sylius.behat.page.shop.checkout.address.class">Tests\StefanDoorn\SyliusStreetNumberPlugin\Behat\Page\Shop\Checkout\AddressPage</parameter>
+    </parameters>
 
-        <service id="acme_sylius_example.context.ui.shop.welcome" class="Tests\StefanDoorn\SyliusStreetNumberPlugin\Behat\Context\Ui\Shop\WelcomeContext">
-            <argument type="service" id="acme_sylius_example.page.shop.static_welcome" />
-            <argument type="service" id="acme_sylius_example.page.shop.dynamic_welcome" />
+    <services>
+        <service id="stefandoorn.sylius_street_number_plugin.behat.context.ui.shop.checkout.addressing" class="Tests\StefanDoorn\SyliusStreetNumberPlugin\Behat\Context\Ui\Shop\Checkout\CheckoutAddressingContext">
+            <argument type="service" id="sylius.behat.shared_storage" />
+            <argument type="service" id="sylius.behat.page.shop.checkout.address" />
+            <argument type="service" id="__symfony__.sylius.factory.address" />
+            <argument type="service" id="__symfony__.sylius.address_comparator" />
+            <argument type="service" id="sylius.behat.page.shop.checkout.select_shipping" />
+
             <tag name="fob.context_service" />
         </service>
-
-        <service id="acme_sylius_example.page.shop.static_welcome" class="Tests\StefanDoorn\SyliusStreetNumberPlugin\Behat\Page\Shop\StaticWelcomePage" parent="sylius.behat.symfony_page" public="false" />
-        <service id="acme_sylius_example.page.shop.dynamic_welcome" class="Tests\StefanDoorn\SyliusStreetNumberPlugin\Behat\Page\Shop\DynamicWelcomePage" parent="sylius.behat.symfony_page" public="false" />
     </services>
 </container>

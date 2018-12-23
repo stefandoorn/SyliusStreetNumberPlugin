@@ -16,7 +16,7 @@ trait Addition
         return $this->addition;
     }
 
-    public function setAddition(string $addition): void
+    public function setAddition(?string $addition): void
     {
         $this->addition = $addition;
     }
