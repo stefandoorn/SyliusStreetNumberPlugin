@@ -17,6 +17,7 @@ Feature: Order addressing validation
         When I do not specify any shipping address information
         And I try to complete the addressing step
         Then I should be notified that the street number in shipping details is required
+        And I should not be notified that the street number addition in shipping details is required
 
     @ui
     Scenario: Address an order's billing address without number
@@ -26,3 +27,4 @@ Feature: Order addressing validation
         And I do not specify any billing address information
         And I try to complete the addressing step
         Then I should be notified that the street number in billing details is required
+        And I should not be notified that the street number addition in billing details is required

@@ -44,9 +44,9 @@ final class CheckoutAddressingContext implements Context
     }
 
     /**
-     * @Then /^I should(?:| also) be notified that the street number in (shipping|billing) details is required$/
+     * @Then /^I should be notified that the street number in (shipping|billing) details is required$/
      */
-    public function iShouldBeNotifiedThatTheAndTheInShippingDetailsAreRequired($type)
+    public function iShouldBeNotifiedThatTheStreetNumberShippingDetailsIsRequired($type): void
     {
         $element = 'number';
 
@@ -54,15 +54,24 @@ final class CheckoutAddressingContext implements Context
     }
 
     /**
-     * @param string $type
-     * @param string $element
-     * @param string $expectedMessage
-     *
-     * @throws \InvalidArgumentException
+     * @Then /^I should not be notified that the street number addition in (shipping|billing) details is required$/
      */
-    private function assertElementValidationMessage($type, $element, $expectedMessage)
+    public function iShouldNotBeNotifiedThatTheStreetNumberAdditionShippingDetailsIsRequired($type): void
+    {
+        $element = 'addition';
+
+        $this->assertElementHasNoValidationMessage($type, $element);
+    }
+
+    private function assertElementValidationMessage(string $type, string $element, string $expectedMessage): void
     {
         $element = sprintf('%s_%s', $type, str_replace(' ', '_', $element));
         Assert::true($this->addressPage->checkValidationMessageFor($element, $expectedMessage));
+    }
+
+    private function assertElementHasNoValidationMessage(string $type, string $element): void
+    {
+        $element = sprintf('%s_%s', $type, str_replace(' ', '_', $element));
+        Assert::true($this->addressPage->noValidationMessageFor($element));
     }
 }
