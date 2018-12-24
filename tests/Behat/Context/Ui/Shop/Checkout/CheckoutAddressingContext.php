@@ -5,11 +5,12 @@ declare(strict_types=1);
 namespace Tests\StefanDoorn\SyliusStreetNumberPlugin\Behat\Context\Ui\Shop\Checkout;
 
 use Behat\Behat\Context\Context;
-use Tests\StefanDoorn\SyliusStreetNumberPlugin\Behat\Page\Shop\Checkout\AddressPageInterface;
+use StefanDoorn\SyliusStreetNumberPlugin\Entity\Interfaces\AddressInterface;
 use Sylius\Behat\Page\Shop\Checkout\SelectShippingPageInterface;
 use Sylius\Behat\Service\SharedStorageInterface;
 use Sylius\Component\Addressing\Comparator\AddressComparatorInterface;
 use Sylius\Component\Resource\Factory\FactoryInterface;
+use Tests\StefanDoorn\SyliusStreetNumberPlugin\Behat\Page\Shop\Checkout\AddressPageInterface;
 use Webmozart\Assert\Assert;
 
 final class CheckoutAddressingContext implements Context
@@ -61,6 +62,22 @@ final class CheckoutAddressingContext implements Context
         $element = 'addition';
 
         $this->assertElementHasNoValidationMessage($type, $element);
+    }
+
+    /**
+     * @Then /^(address "[^"]+", "[^"]+", "[^"]+", "[^"]+", "[^"]+") should be filled as shipping address$/
+     */
+    public function addressShouldBeFilledAsShippingAddress(AddressInterface $address)
+    {
+        Assert::true($this->addressComparator->equal($address, $this->addressPage->getPreFilledShippingAddress()));
+    }
+
+    /**
+     * @Then /^(address "[^"]+", "[^"]+", "[^"]+", "[^"]+", "[^"]+") should be filled as billing address$/
+     */
+    public function addressShouldBeFilledAsBillingAddress(AddressInterface $address)
+    {
+        Assert::true($this->addressComparator->equal($address, $this->addressPage->getPreFilledBillingAddress()));
     }
 
     private function assertElementValidationMessage(string $type, string $element, string $expectedMessage): void

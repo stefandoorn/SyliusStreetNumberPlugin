@@ -4,14 +4,12 @@ declare(strict_types=1);
 
 namespace StefanDoorn\SyliusStreetNumberPlugin\Form\Extension;
 
-use StefanDoorn\SyliusStreetNumberPlugin\Entity\Interfaces\AddressInterface;
 use Sylius\Bundle\AddressingBundle\Form\Type\AddressType;
 use Symfony\Component\Form\AbstractTypeExtension;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\FormEvent;
 use Symfony\Component\Form\FormEvents;
-
 
 final class AddressTypeStreetNumberAdditionExtension extends AbstractTypeExtension
 {

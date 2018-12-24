@@ -3,11 +3,11 @@ default:
         house_number_plugin_checkout:
             contexts_services:
                 - stefandoorn.sylius_street_number_plugin.behat.context.ui.shop.checkout.addressing
+                - stefandoorn.sylius_street_number_plugin.behat.context.transform.address
 
                 - sylius.behat.context.hook.doctrine_orm
                 - sylius.behat.context.hook.email_spool
 
-                - sylius.behat.context.transform.address
                 - sylius.behat.context.transform.country
                 - sylius.behat.context.transform.channel
                 - sylius.behat.context.transform.currency
