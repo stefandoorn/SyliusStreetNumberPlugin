@@ -1,4 +1,4 @@
-# WORK IN PROGRESS - Sylius Street Number Plugin
+# Sylius Street Number Plugin
 
 This plugin helps you split street & number.
 
@@ -15,7 +15,7 @@ Optional features:
 1. Require plugin with composer:
 
     ```bash
-    composer require stefandoorn/sylius-street-number-plugin
+    composer require stefandoorn/sylius-street-number-plugin:^1.0@beta
     ```
 
 2. Add plugin class to your `AppKernel`.
