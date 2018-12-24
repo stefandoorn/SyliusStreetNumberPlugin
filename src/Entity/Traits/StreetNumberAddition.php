@@ -13,7 +13,7 @@ trait StreetNumberAddition
 
     public function getNumberWithAddition(): string
     {
-        return trim(sprintf('%s%s', $this->getNumber(), $this->getAddition()));
+        return trim(sprintf('%s %s', $this->getNumber(), $this->getAddition()));
     }
 
     public function getStreetWithoutNumberAndAddition(): string
