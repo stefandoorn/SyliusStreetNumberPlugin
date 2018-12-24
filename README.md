@@ -15,7 +15,7 @@ Optional features:
 1. Require plugin with composer:
 
     ```bash
-    composer require stefandoorn/sylius-street-number-plugin:^1.0@beta
+    composer require stefandoorn/sylius-street-number-plugin:^1.0@alpha
     ```
 
 2. Add plugin class to your `AppKernel`.
