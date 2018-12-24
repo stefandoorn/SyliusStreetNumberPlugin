@@ -51,7 +51,7 @@ final class AddressTypeStreetNumberAdditionExtension extends AbstractTypeExtensi
                     return;
                 }
 
-                $data['street'] = sprintf('%s %s', $street, $streetNumberAddition);
+                $data['street'] = sprintf('%s%s', $street, $streetNumberAddition);
                 $event->setData($data);
             });
     }
