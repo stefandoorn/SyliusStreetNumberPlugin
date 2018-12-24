@@ -8,6 +8,10 @@ final class StripString
 {
     public static function fromEnd(string $haystack, string $needle): string
     {
+        if (false === strpos($haystack, $needle)) {
+            return $haystack;
+        }
+
         return substr($haystack, 0, -1 * strlen($needle));
     }
 

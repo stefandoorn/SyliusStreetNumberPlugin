@@ -26,4 +26,10 @@ final class StripStringSpec extends ObjectBehavior
         $this::trimFromEnd('Sesame Street 1a', '1a')->shouldReturn('Sesame Street');
         $this::trimFromEnd('Long String With Number 12', 12)->shouldReturn('Long String With Number');
     }
+    
+    function it_should_just_return_text_if_needle_not_in_haystack(): void
+    {
+        $this::trimFromEnd('Sesame Street 1a', 'blabla')->shouldReturn('Sesame Street 1a');
+        $this::trimFromEnd('Long String With Number 12', 'blabla')->shouldReturn('Long String With Number 12');
+    }
 }
