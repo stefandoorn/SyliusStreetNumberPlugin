@@ -20,12 +20,12 @@ final class StreetNumberAdditionSpec extends ObjectBehavior
         $this->setNumber('1')->shouldReturn(null);
         $this->setAddition('a')->shouldReturn(null);
 
-        $this->getNumberWithAddition()->shouldReturn('1a');
+        $this->getNumberWithAddition()->shouldReturn('1 a');
     }
 
     public function it_should_return_street_without_number_and_addition(): void
     {
-        $this->setStreet('Sesame Street 1a')->shouldReturn(null);
+        $this->setStreet('Sesame Street 1 a')->shouldReturn(null);
         $this->setNumber('1')->shouldReturn(null);
         $this->setAddition('a')->shouldReturn(null);
 
