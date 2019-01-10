@@ -10,7 +10,7 @@ use Symfony\Component\Form\FormEvents;
 
 final class AppendDataToStreetFieldEventSubscriber implements EventSubscriberInterface
 {
-    private static const FIELD_STREET = 'street';
+    private const FIELD_STREET = 'street';
 
     /** @var string */
     private $field;
