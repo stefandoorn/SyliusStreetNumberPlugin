@@ -8,7 +8,7 @@
             <tag name="form.type_extension" extended_type="Sylius\Bundle\AddressingBundle\Form\Type\AddressType" priority="-10" />
         </service>
 
-        <service id="stefandoorn.sylius_street_number_plugin.form.event_listener.append_addition_data_to_street_field_event_subscriber" class="StefanDoorn\SyliusStreetNumberPlugin\Form\EventListener\AppendDataToStreetFieldEventSubscriber">
+        <service id="stefandoorn.sylius_street_number_plugin.form.event_listener.append_addition_data_to_street_field_event_subscriber" class="StefanDoorn\SyliusStreetNumberPlugin\Form\EventSubscriber\AppendDataToStreetFieldEventSubscriber">
             <argument>addition</argument>
         </service>
     </services>

@@ -9,9 +9,9 @@
             <tag name="form.type_extension" extended_type="Sylius\Bundle\AddressingBundle\Form\Type\AddressType" />
         </service>
 
-        <service id="stefandoorn.sylius_street_number_plugin.form.event_listener.set_street_without_number_and_addition_event_subscriber" class="StefanDoorn\SyliusStreetNumberPlugin\Form\EventListener\SetStreetWithoutNumberAndAdditionEventSubscriber" />
+        <service id="stefandoorn.sylius_street_number_plugin.form.event_listener.set_street_without_number_and_addition_event_subscriber" class="StefanDoorn\SyliusStreetNumberPlugin\Form\EventSubscriber\SetStreetWithoutNumberAndAdditionEventSubscriber" />
 
-        <service id="stefandoorn.sylius_street_number_plugin.form.event_listener.append_number_data_to_street_field_event_subscriber" class="StefanDoorn\SyliusStreetNumberPlugin\Form\EventListener\AppendDataToStreetFieldEventSubscriber">
+        <service id="stefandoorn.sylius_street_number_plugin.form.event_listener.append_number_data_to_street_field_event_subscriber" class="StefanDoorn\SyliusStreetNumberPlugin\Form\EventSubscriber\AppendDataToStreetFieldEventSubscriber">
             <argument>number</argument>
         </service>
     </services>
