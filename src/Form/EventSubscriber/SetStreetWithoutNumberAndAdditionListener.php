@@ -2,14 +2,14 @@
 
 declare(strict_types=1);
 
-namespace StefanDoorn\SyliusStreetNumberPlugin\Form\EventListener;
+namespace StefanDoorn\SyliusStreetNumberPlugin\Form\EventSubscriber;
 
 use StefanDoorn\SyliusStreetNumberPlugin\Entity\Interfaces\AddressInterface;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\Form\FormEvent;
 use Symfony\Component\Form\FormEvents;
 
-final class SetStreetWithoutNumberAndAdditionListener implements EventSubscriberInterface
+final class SetStreetWithoutNumberAndAdditionEventSubscriber implements EventSubscriberInterface
 {
     public static function getSubscribedEvents(): array
     {
