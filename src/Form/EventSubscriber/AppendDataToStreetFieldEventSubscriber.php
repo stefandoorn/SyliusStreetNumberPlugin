@@ -31,15 +31,17 @@ final class AppendDataToStreetFieldEventSubscriber implements EventSubscriberInt
     {
         $data = $event->getData();
 
-        $street = $data[self::FIELD_STREET];
-        $fieldData = $data[$this->field];
-
         // Add field data to street field to keep things compatible with Sylius
-        if (false !== strrpos($street, $fieldData)) {
+        if (false !== strrpos($data[self::FIELD_STREET], $data[$this->field])) {
             return;
         }
 
-        $data[self::FIELD_STREET] = sprintf('%s %s', $street, $fieldData);
+        $data[self::FIELD_STREET] = sprintf(
+            '%s %s',
+            $data[self::FIELD_STREET],
+            $data[$this->field]
+        );
+
         $event->setData($data);
     }
 }
