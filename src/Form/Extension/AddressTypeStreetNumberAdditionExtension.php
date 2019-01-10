@@ -9,8 +9,6 @@ use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\Form\AbstractTypeExtension;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
-use Symfony\Component\Form\FormEvent;
-use Symfony\Component\Form\FormEvents;
 
 final class AddressTypeStreetNumberAdditionExtension extends AbstractTypeExtension
 {
@@ -24,11 +22,15 @@ final class AddressTypeStreetNumberAdditionExtension extends AbstractTypeExtensi
 
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('addition', TextType::class, [
-            'required' => false,
-            'label' => 'sylius.form.address.street_number_addition',
-            'validation_groups' => ['sylius', 'sylius_shipping_address_update'],
-        ]);
+        $builder->add(
+            'addition',
+            TextType::class,
+            [
+                'required' => false,
+                'label' => 'sylius.form.address.street_number_addition',
+                'validation_groups' => ['sylius', 'sylius_shipping_address_update'],
+            ]
+        );
 
         $builder->addEventSubscriber($this->appendAdditionDataToStreetFieldEventSubscriber);
     }
