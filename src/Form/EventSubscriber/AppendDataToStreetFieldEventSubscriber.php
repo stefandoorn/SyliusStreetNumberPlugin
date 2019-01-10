@@ -4,14 +4,13 @@ declare(strict_types=1);
 
 namespace StefanDoorn\SyliusStreetNumberPlugin\Form\EventSubscriber;
 
-use StefanDoorn\SyliusStreetNumberPlugin\Entity\Interfaces\AddressInterface;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\Form\FormEvent;
 use Symfony\Component\Form\FormEvents;
 
 final class AppendDataToStreetFieldEventSubscriber implements EventSubscriberInterface
 {
-    private static FIELD_STREET = 'street';
+    private static const FIELD_STREET = 'street';
 
     /** @var string */
     private $field;
