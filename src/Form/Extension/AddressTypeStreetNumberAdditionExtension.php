@@ -15,9 +15,15 @@ final class AddressTypeStreetNumberAdditionExtension extends AbstractTypeExtensi
     /** @var EventSubscriberInterface */
     private $appendAdditionDataToStreetFieldEventSubscriber;
 
-    public function __construct(EventSubscriberInterface $appendAdditionDataToStreetFieldEventSubscriber)
-    {
+    /** @var EventSubscriberInterface */
+    private $removeDuplicateAdditionEventSubscriber;
+
+    public function __construct(
+        EventSubscriberInterface $appendAdditionDataToStreetFieldEventSubscriber,
+        EventSubscriberInterface $removeDuplicateAdditionEventSubscriber
+    ) {
         $this->appendAdditionDataToStreetFieldEventSubscriber = $appendAdditionDataToStreetFieldEventSubscriber;
+        $this->removeDuplicateAdditionEventSubscriber = $removeDuplicateAdditionEventSubscriber;
     }
 
     public function buildForm(FormBuilderInterface $builder, array $options)
@@ -33,6 +39,7 @@ final class AddressTypeStreetNumberAdditionExtension extends AbstractTypeExtensi
         );
 
         $builder->addEventSubscriber($this->appendAdditionDataToStreetFieldEventSubscriber);
+        $builder->addEventSubscriber($this->removeDuplicateAdditionEventSubscriber);
     }
 
     public function getExtendedType()

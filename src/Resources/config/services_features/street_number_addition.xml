@@ -4,6 +4,7 @@
     <services>
         <service id="stefandoorn.sylius_street_number_plugin.form.extension.type.address_street_number_addition" class="StefanDoorn\SyliusStreetNumberPlugin\Form\Extension\AddressTypeStreetNumberAdditionExtension">
             <argument type="service" id="stefandoorn.sylius_street_number_plugin.form.event_listener.append_addition_data_to_street_field_event_subscriber" />
+            <argument type="service" id="stefandoorn.sylius_street_number_plugin.form.event_listener.remove_duplicate_addition_event_subscriber" />
 
             <tag name="form.type_extension" extended_type="Sylius\Bundle\AddressingBundle\Form\Type\AddressType" priority="-10" />
         </service>
@@ -11,5 +12,7 @@
         <service id="stefandoorn.sylius_street_number_plugin.form.event_listener.append_addition_data_to_street_field_event_subscriber" class="StefanDoorn\SyliusStreetNumberPlugin\Form\EventSubscriber\AppendDataToStreetFieldEventSubscriber">
             <argument>addition</argument>
         </service>
+
+        <service id="stefandoorn.sylius_street_number_plugin.form.event_listener.remove_duplicate_addition_event_subscriber" class="StefanDoorn\SyliusStreetNumberPlugin\Form\EventSubscriber\RemoveDuplicateAdditionEventSubscriber" />
     </services>
 </container>
