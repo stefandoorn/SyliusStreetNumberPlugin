@@ -26,6 +26,10 @@ final class RemoveDuplicateAdditionEventSubscriber implements EventSubscriberInt
         if (!$data instanceof AddressInterface) {
             return;
         }
+        
+        if (empty($data->getAddition())) {
+            return;
+        }
 
         $streetNumber = sprintf('%s %s', $data->getStreetWithoutNumberAndAddition(), $data->getNumber());
 
