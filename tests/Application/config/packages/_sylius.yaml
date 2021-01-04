@@ -19,3 +19,9 @@ sylius_shop:
 sylius_street_number:
     features:
         street_number_addition: true
+
+sylius_addressing:
+    resources:
+        address:
+            classes:
+                model: App\Entity\Addressing\Address

@@ -15,7 +15,7 @@ Optional features:
 1. Require plugin with composer:
 
     ```bash
-    composer require stefandoorn/sylius-street-number-plugin:^1.0@alpha
+    composer require stefandoorn/sylius-street-number-plugin:^1.0@beta
     ```
 
 2. Add plugin class to your `AppKernel`.
@@ -31,14 +31,8 @@ Optional features:
     ```yaml
     - { resource: "@SyliusStreetNumberPlugin/Resources/config/config.yml" }
     ```
-    
-4. (optional) Load address resource override (if you don't have this done in your project yet):
 
-    ```yaml
-    - { resource: "@SyliusStreetNumberPlugin/Resources/config/resources.yml" }
-    ```
-
-5. Add doctrine mapping fields for table `sylius_address` (`config/doctrine/Address.orm.yml`):
+4. Add doctrine mapping fields for table `sylius_address` (see `tests/Application/config/doctrine/Address.orm.yml`):
 
     ```yaml
         ...
@@ -55,10 +49,20 @@ Optional features:
                 type: string
                 nullable: true                 
     ```
-    
-    In case you haven't already extended the Address class, Symfony will use the one from this bundle.
-    
+
     The `streetNumberAddition` field is always added, regardless whether you use it. It will be `null` in that cae.
+
+5. Add to `_sylius.yaml`:
+
+   ```yaml
+      ...
+   
+      sylius_addressing:
+         resources:
+            address:
+               classes:
+                model: App\Entity\Addressing\Address
+   ```
 
 6. Add to `SyliusAdminBundle/views/Common/Form/_address.html.twig`:
 

@@ -12,3 +12,10 @@ doctrine:
         charset: UTF8
 
         url: '%env(resolve:DATABASE_URL)%'
+
+    orm:
+        mappings:
+            is_bundle: false
+            type: yml
+            dir: "%kernel.project_dir%/config/doctrine"
+            prefix: App\Entity

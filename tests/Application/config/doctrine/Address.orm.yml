@@ -1,0 +1,14 @@
+App\Entity\Addressing\Address:
+  type: entity
+  table: sylius_address
+  fields:
+    number:
+      column: street_number
+      type: string
+      nullable: false
+      options:
+        default: ''
+    addition:
+      column: street_number_addition
+      type: string
+      nullable: true
