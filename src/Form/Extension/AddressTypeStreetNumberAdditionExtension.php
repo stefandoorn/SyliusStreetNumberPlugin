@@ -42,8 +42,8 @@ final class AddressTypeStreetNumberAdditionExtension extends AbstractTypeExtensi
         $builder->addEventSubscriber($this->removeDuplicateAdditionEventSubscriber);
     }
 
-    public function getExtendedType()
+    public static function getExtendedTypes(): array
     {
-        return AddressType::class;
+        return [AddressType::class];
     }
 }

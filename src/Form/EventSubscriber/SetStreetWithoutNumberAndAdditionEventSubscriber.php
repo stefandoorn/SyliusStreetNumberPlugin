@@ -4,7 +4,8 @@ declare(strict_types=1);
 
 namespace StefanDoorn\SyliusStreetNumberPlugin\Form\EventSubscriber;
 
-use StefanDoorn\SyliusStreetNumberPlugin\Entity\Interfaces\AddressInterface;
+use StefanDoorn\SyliusStreetNumberPlugin\Entity\Interfaces\StreetNumberAwareInterface;
+use Sylius\Component\Core\Model\AddressInterface;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\Form\FormEvent;
 use Symfony\Component\Form\FormEvents;
@@ -20,7 +21,7 @@ final class SetStreetWithoutNumberAndAdditionEventSubscriber implements EventSub
 
     public function onPreSetData(FormEvent $event): void
     {
-        /** @var AddressInterface $data */
+        /** @var StreetNumberAwareInterface|AddressInterface $data */
         $data = $event->getData();
 
         if (!$data instanceof AddressInterface) {

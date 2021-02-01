@@ -51,8 +51,8 @@ final class AddressTypeStreetNumberExtension extends AbstractTypeExtension
         $builder->addEventSubscriber($this->appendNumberDataToStreetFieldEventSubscriber);
     }
 
-    public function getExtendedType()
+    public static function getExtendedTypes(): array
     {
-        return AddressType::class;
+        return [AddressType::class];
     }
 }
