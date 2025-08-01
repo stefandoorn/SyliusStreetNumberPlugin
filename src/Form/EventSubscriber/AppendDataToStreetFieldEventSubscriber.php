@@ -31,6 +31,10 @@ final class AppendDataToStreetFieldEventSubscriber implements EventSubscriberInt
     {
         $data = $event->getData();
 
+        if (!is_string($data[$this->field])) {
+            return;
+        }
+
         $data[self::FIELD_STREET] = sprintf(
             '%s %s',
             $data[self::FIELD_STREET],
